@@ -1,0 +1,96 @@
+/* style.css */
+
+/* Reset và cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Charter BT Pro', serif; /* Đảm bảo font chữ được kế thừa */
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #0077cc;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Quote Card Style */
+.quote-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.quote-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.quote-meta {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: right;
+}
+
+/* Button style */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #f0f0f0;
+  border-color: #888;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #333;
+}
+
+.navbar a:hover {
+  background-color: #eee;
+}
