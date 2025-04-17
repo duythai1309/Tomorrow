@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'YOUR_SUPABASE_URL'; // Thay bằng URL Supabase của bạn
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // Thay bằng Anon Key Supabase của bạn
+const supabaseUrl = 'YOUR_SUPABASE_URL'; // <--- CHÚ Ý: Thay bằng URL Supabase của bạn
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // <--- CHÚ Ý: Thay bằng Anon Key Supabase của bạn
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -27,7 +27,7 @@ async function fetchAndDisplayBooks(searchTerm = '') {
 
     try {
         let query = supabase
-            .from('books') // Thay 'books' bằng tên bảng sách của bạn
+            .from('books') // <--- CHÚ Ý: Thay 'books' bằng tên bảng sách của bạn
             .select('title, author, publication_date, id'); // Chọn các cột cần thiết
 
         if (searchTerm) {
@@ -45,6 +45,12 @@ async function fetchAndDisplayBooks(searchTerm = '') {
         } else if (books && books.length > 0) {
             books.forEach(book => {
                 const row = booksTableBody.insertRow();
+                row.classList.add('book-row', 'cursor-pointer', 'hover:bg-gray-100'); // Thêm class để стили hóa và chỉ ra có thể nhấp
+
+                // Thêm sự kiện click vào toàn bộ hàng
+                row.addEventListener('click', () => {
+                    window.location.href = `/books.html?id=${book.id}`; // Chuyển đến trang đọc sách
+                });
 
                 const titleCell = row.insertCell();
                 titleCell.textContent = book.title;
@@ -56,11 +62,7 @@ async function fetchAndDisplayBooks(searchTerm = '') {
                 dateCell.textContent = book.publication_date ? new Date(book.publication_date).toLocaleDateString() : '';
 
                 const actionsCell = row.insertCell();
-                const viewButton = document.createElement('a');
-                viewButton.href = `/books.html?id=${book.id}`; // Chuyển đến trang đọc sách với ID
-                viewButton.classList.add('btn', 'btn-sm'); // Thêm class стили nếu cần
-                viewButton.textContent = 'Read';
-                actionsCell.appendChild(viewButton);
+                // Để trống ô hành động vì chúng ta đã làm cho cả hàng có thể nhấp
             });
         } else {
             const emptyRow = booksTableBody.insertRow();
