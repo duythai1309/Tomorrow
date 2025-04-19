@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'YOUR_SUPABASE_URL'; // <--- CHÚ Ý: Thay bằng URL Supabase của bạn
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // <--- CHÚ Ý: Thay bằng Anon Key Supabase của bạn
+const supabaseUrl = 'https://pshfjrusiecymvdcvilq.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzaGZqcnVzaWVjeW12ZGN2aWxxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ1MzMxOTAsImV4cCI6MjA2MDEwOTE5MH0.3aXLVXbFAJ_iorUMOPCK8IqaQySNUP-vRRuYFWIY3So';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
